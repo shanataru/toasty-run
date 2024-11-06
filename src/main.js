@@ -12,8 +12,8 @@ k.loadSprite("character", "graphics/bread_spritesheet.png", {
     anims: {
         idle: {from: 0, to: 3, loop: true, speed: 15},
         run: {from: 4, to: 7, loop: true, speed: 15},
-        jump: {from: 8, to: 11, loop: true, speed: 15},
-        fall: {from: 12, to: 15, loop: true, speed: 15}
+        jump: {from: 8, to: 8, loop: true, speed: 15},
+        fall: {from: 12, to: 12, loop: true, speed: 15}
     }
 });
 k.loadSprite("enemy", "graphics/mold2-white.png", {
