@@ -1,5 +1,7 @@
 import k from "./kaplayContext";
 import mainMenu from "./scenes/mainMenu";  //no need for {}, default export
+import game from "./scenes/game";
+//import gameover from "./scenes/gameover";
 
 
 k.loadSprite("background", "graphics/kitchen-bg2-blur.png");
@@ -35,18 +37,22 @@ k.loadSprite("egg", "graphics/egg4.png");
 
 
 k.loadFont("game-font", "fonts/Planes_ValMore.ttf");
-k.loadSound("destroy", "sounds/Destroy.wav");
-k.loadSound("hurt", "sounds/Hurt.wav");
-k.loadSound("jump", "sounds/jump.mp3");
+k.loadSound("sndDestroy", "sounds/Destroy.wav");
+k.loadSound("sndHurt", "sounds/Hurt.wav");
+k.loadSound("sndJump", "sounds/jump.mp3");
 k.loadSound("ring", "sounds/Ring.wav");
 k.loadSound("hyper-ring", "sounds/HyperRing.wav");
-k.loadSound("bgm", "sounds/bit-shift-kevin-macleod.mp3");
+k.loadSound("sndBgMusic", "sounds/bit-shift-kevin-macleod.mp3");
 
-k.scene("main-menu", mainMenu);
-k.scene("game", () => {});
-k.scene("game-over", () => {});
 
-k.go("main-menu");
+
+
+k.onLoad(() => {
+    k.scene("main-menu", mainMenu);
+    k.scene("game", game);
+    k.scene("game-over", () => {});
+    k.go("main-menu");
+});
 
 
 
