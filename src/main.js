@@ -24,7 +24,14 @@ k.loadSprite("enemy", "graphics/mold2-white.png", {
     }
 });
 
-k.loadSprite("butter", "graphics/butter2.png");
+k.loadSprite("butter", "graphics/butter2.png", {
+    sliceX: 1,
+    sliceY: 1,
+    anims: {
+        idle: {from: 0, to: 0, loop: false, speed: 1}
+    }
+});
+
 k.loadSprite("jam", "graphics/jam_strawberry_sheet.png", {
     sliceX: 5,
     sliceY: 1,
@@ -33,15 +40,21 @@ k.loadSprite("jam", "graphics/jam_strawberry_sheet.png", {
     },
 });
 
-k.loadSprite("egg", "graphics/egg4.png");
+k.loadSprite("egg", "graphics/egg4.png", {
+    sliceX: 1,
+    sliceY: 1,
+    anims: {
+        idle: {from: 0, to: 0, loop: false, speed: 1}
+    }
+});
 
 
 k.loadFont("game-font", "fonts/Planes_ValMore.ttf");
-k.loadSound("sndDestroy", "sounds/Destroy.wav");
-k.loadSound("sndHurt", "sounds/Hurt.wav");
+k.loadSound("sndHurt", "sounds/yoink.wav");
 k.loadSound("sndJump", "sounds/jump.mp3");
-k.loadSound("ring", "sounds/Ring.wav");
-k.loadSound("hyper-ring", "sounds/HyperRing.wav");
+k.loadSound("sndCollect", "sounds/collect.mp3");
+k.loadSound("sndPowerUp", "sounds/power_up.wav");
+k.loadSound("sndHealthUp", "sounds/health_up.wav");
 k.loadSound("sndBgMusic", "sounds/bit-shift-kevin-macleod.mp3");
 
 

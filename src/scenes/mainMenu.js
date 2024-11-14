@@ -26,6 +26,6 @@ export default function mainMenu() {
     makeCharacter(k.vec2(200, 554));
 
     k.onUpdate( () => {
-        moveWorld(-100, -500);
+        moveWorld(-100, -500, 0);
     });
 }

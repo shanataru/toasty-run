@@ -35,7 +35,7 @@ export function createWorld(){
     platforms[1].flipX = true;
 }
 
-export function moveWorld(bgSpeed, platformSpeed){
+export function moveWorld(bgSpeed, platformSpeed, characterPosY){
     if (bgPieces[1].pos.x < 0){
         bgPieces[0].moveTo(bgPieces[1].pos.x + bgPieces[0].width * bgPieceScale, bgYPos);
         bgPieces.push(bgPieces.shift());
@@ -43,6 +43,10 @@ export function moveWorld(bgSpeed, platformSpeed){
 
     bgPieces[0].move(bgSpeed, 0);
     bgPieces[1].moveTo(bgPieces[0].pos.x + bgPieces[0].width * bgPieceScale, bgYPos);
+    
+    //shift bg a bit when character jump
+    bgPieces[0].moveTo(bgPieces[0].pos.x, - characterPosY / 10 - 50);
+    bgPieces[1].moveTo(bgPieces[1].pos.x, - characterPosY / 10 - 50);
 
     if(platforms[1].pos.x < 0){
         platforms[0].moveTo(platforms[1].pos.x + platforms[0].width * platformScale, platformYPos);
