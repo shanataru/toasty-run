@@ -72,6 +72,7 @@ export default function game(){
             scoreMultiplier = 1;
             gameSpeed = 300;
             updateHealthText(-1);
+            updateCollectUIText("!!", k.rgb(220, 10, 50));
             return;
         } else if ( playerCharacter.status === "buff"){
             k.destroy(collidedObject);
@@ -94,7 +95,7 @@ export default function game(){
                 updateCollectUIText(`+${1 * scoreMultiplier}`, playerCharacter.color);
             }
             else{
-                updateCollectUIText("++", k.rgb(255, 255, 0));
+                updateCollectUIText("+1", k.rgb(255, 255, 0));
             }
     });
 
@@ -107,12 +108,12 @@ export default function game(){
 
     let buffStatusEndTimer = null;
 
-    playerCharacter.onCollide("egg", (collidedObject) => {
+    playerCharacter.onCollide("rainbow_salt", (collidedObject) => {
         k.destroy(collidedObject);
         k.play("sndPowerUp", {volume: 0.5});
         updateScore(15, 1);
-        updateCollectUIText("++yum!", k.rgb(255, 180, 0));
-        changeCharacterStatus("buff", 5.0); //update status everytime an egg is picked
+        updateCollectUIText("+buff!", k.rgb(255, 180, 0));
+        changeCharacterStatus("buff", 5.0); //update status everytime a rainbow-salt is picked
         if (buffStatusEndTimer !== null){
             buffStatusEndTimer.cancel();
         }
@@ -164,7 +165,7 @@ export default function game(){
     };
     spawnCollectible("butter");
 
-    k.wait(1, () => (spawnCollectible("egg")));
+    k.wait(20, () => (spawnCollectible("rainbow_salt")));
 
     //table rectangle
     k.add([

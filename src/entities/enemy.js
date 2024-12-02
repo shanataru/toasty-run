@@ -21,9 +21,16 @@ export function makeEnemy(pos, enemySpeed, gameSpeed, playerCharacter){
 
         if (playerCharacter.status === "buff") { 
             let time = k.time() * 10;
+            //let r = Math.sin(time) * 128 + 128;
+
             let r = Math.sin(time) * 128 + 128;
-            r = Math.min(r + 80, 255); 
-            enemy.color = k.rgb(r, r, r);
+            let g = Math.sin(time + 2) * 128 + 128;
+            let b = Math.sin(time + 4) * 128 + 128;
+            r = Math.max(r - 80, 0); 
+            g = Math.max(g - 80, 0);
+            b = Math.max(b - 80, 0);
+
+            enemy.color = k.rgb(r, g, b);
             enemy.opacity = 0.9; 
         } else{
             enemy.opacity = 1.0;

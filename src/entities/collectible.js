@@ -2,11 +2,11 @@ import k from "../kaplayContext.js";
 
 const butterSpawnRate = [0.5, 2.0];
 const jamSpawnRate = [15, 25]
-const eggSpawnRate = [1, 2];
+const saltSpawnRate = [30, 50];
 
 const butterSpawnAreaY = [575, 575];
 const jamSpawnAreaY = [100, 175]
-const eggSpawnAreaY = [200, 250];
+const saltSpawnAreaY = [200, 250];
 
 
 const spawnBehavior = {
@@ -24,11 +24,11 @@ const spawnBehavior = {
             nextSpawnTime: k.rand(jamSpawnRate[0],jamSpawnRate[1])
         };
     },
-    egg: (posX) => {
+    rainbow_salt: (posX) => {
         return {
-            pos: k.vec2(posX, k.rand(eggSpawnAreaY[0], eggSpawnAreaY[1])),
-            scale: 2,
-            nextSpawnTime: k.rand(eggSpawnRate[0],eggSpawnRate[1])
+            pos: k.vec2(posX, k.rand(saltSpawnAreaY[0], saltSpawnAreaY[1])),
+            scale: 2.2,
+            nextSpawnTime: k.rand(saltSpawnRate[0],saltSpawnRate[1])
         };
     },
 };
@@ -47,6 +47,8 @@ export function makeCollectible(collectibleName, gameSpeed, posX){
     ]);
 
     let myTime = 0;
+    let time = 0;
+    let angle = 30;
 
     collectible.onUpdate( () => {
         if (collectibleName === "jam") { //moves in wavy pattern
@@ -54,9 +56,14 @@ export function makeCollectible(collectibleName, gameSpeed, posX){
             let y = Math.sin(4*myTime)*350;
             collectible.move( - gameSpeed, y);
         }
-        else if (collectibleName === "egg"){
-            collectible.angle += 25 * k.dt();
-            collectible.move( - gameSpeed, 0);
+        else if (collectibleName === "rainbow_salt"){
+            time += k.dt();
+            if(time > 0.7){
+                angle *= -1;
+                time = 0;
+            }
+            collectible.angle = angle;
+            collectible.move( - gameSpeed/2, 0);
         }
         else{ //doesnt move
             collectible.move( - gameSpeed, 0);

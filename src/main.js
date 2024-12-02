@@ -48,6 +48,14 @@ k.loadSprite("egg", "graphics/egg4.png", {
     }
 });
 
+k.loadSprite("rainbow_salt", "graphics/rainbow-salt-shiny.png", {
+    sliceX: 2,
+    sliceY: 1,
+    anims: {
+        idle: {from: 0, to: 1, loop: true, speed: 3}
+    }
+});
+
 
 k.loadFont("game-font", "fonts/Planes_ValMore.ttf");
 k.loadSound("sndHurt", "sounds/yoink.wav");
