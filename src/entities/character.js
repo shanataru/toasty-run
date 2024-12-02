@@ -20,7 +20,7 @@ export function makeCharacter(pos){
                     if(this.isGrounded()){
                         this.jump();
                         this.play("jump");
-                        k.play("sndJump", {volume: 0.5}); //plays sound
+                        k.play("sndJump", {volume: 0.3}); //plays sound
                     }
                 });
             },

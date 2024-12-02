@@ -59,13 +59,11 @@ k.loadSprite("rainbow_salt", "graphics/rainbow-salt-shiny.png", {
 
 k.loadFont("game-font", "fonts/Planes_ValMore.ttf");
 k.loadSound("sndHurt", "sounds/yoink.wav");
-k.loadSound("sndJump", "sounds/jump.mp3");
-k.loadSound("sndCollect", "sounds/collect.mp3");
+k.loadSound("sndJump", "sounds/toaster-pop.wav");
+k.loadSound("sndCollect", "sounds/3-up-fast-2.wav");
 k.loadSound("sndPowerUp", "sounds/power_up.wav");
 k.loadSound("sndHealthUp", "sounds/health_up.wav");
 k.loadSound("sndBgMusic", "sounds/bit-shift-kevin-macleod.mp3");
-
-
 
 
 k.onLoad(() => {

@@ -76,7 +76,7 @@ export default function game(){
             return;
         } else if ( playerCharacter.status === "buff"){
             k.destroy(collidedObject);
-            k.play("sndPowerUp", {volume: 0.5});
+            k.play("sndPowerUp", {volume: 0.3});
             updateScore(10, scoreMultiplier);
             updateCollectUIText(`x${scoreMultiplier}`, playerCharacter.color);
             scoreMultiplier++;
@@ -88,7 +88,7 @@ export default function game(){
     });
     
     playerCharacter.onCollide("butter", (collidedObject) => {
-            k.play("sndCollect", {volume: 0.5});
+            k.play("sndCollect", {volume: 0.1});
             k.destroy(collidedObject);
             updateScore(1, scoreMultiplier);
             if(scoreMultiplier > 1){
@@ -100,7 +100,7 @@ export default function game(){
     });
 
     playerCharacter.onCollide("jam", (collidedObject) => {
-            k.play("sndHealthUp", {volume: 1.0});
+            k.play("sndHealthUp", {volume: 0.5});
             k.destroy(collidedObject);
             updateHealthText(1);
             updateCollectUIText("+♥", k.rgb(220, 10, 50));
@@ -110,7 +110,7 @@ export default function game(){
 
     playerCharacter.onCollide("rainbow_salt", (collidedObject) => {
         k.destroy(collidedObject);
-        k.play("sndPowerUp", {volume: 0.5});
+        k.play("sndPowerUp", {volume: 0.3});
         updateScore(15, 1);
         updateCollectUIText("+buff!", k.rgb(255, 180, 0));
         changeCharacterStatus("buff", 5.0); //update status everytime a rainbow-salt is picked
