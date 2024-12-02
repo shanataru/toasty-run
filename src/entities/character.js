@@ -86,6 +86,7 @@ export function changeCharacterStatus(statusType, statusLength){
     if (statusType === PLAYER_STATUS[1]){ //iframe
         playerCharacter.opacity = 0.5;
         playerCharacter.status = PLAYER_STATUS[1];
+        playerCharacter.color = k.rgb(255, 255, 255);
         statusEndTimer = k.wait(statusLength, () => {
             playerCharacter.opacity = 1.0; 
             playerCharacter.color = k.rgb(255, 255, 255);
@@ -97,9 +98,7 @@ export function changeCharacterStatus(statusType, statusLength){
         playerCharacter.opacity = 1.0; 
         playerCharacter.status = PLAYER_STATUS[2];
         statusEndTimer = k.wait(statusLength, () => {
-            playerCharacter.opacity = 1.0; 
-            playerCharacter.color = k.rgb(255, 255, 255);
-            playerCharacter.status = PLAYER_STATUS[0];
+            changeCharacterStatus(PLAYER_STATUS[1], 1.5);
             statusEndTimer = null;
         });
     }
