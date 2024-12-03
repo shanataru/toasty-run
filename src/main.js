@@ -1,7 +1,7 @@
 import k from "./kaplayContext";
 import mainMenu from "./scenes/mainMenu";  //no need for {}, default export
 import game from "./scenes/game";
-//import gameover from "./scenes/gameover";
+import gameover from "./scenes/gameover";
 
 
 k.loadSprite("background", "graphics/kitchen-bg2-blur.png");
@@ -57,19 +57,20 @@ k.loadSprite("rainbow_salt", "graphics/rainbow-salt-shiny.png", {
 });
 
 
-k.loadFont("game-font", "fonts/Planes_ValMore.ttf");
+k.loadFont("game-font", "fonts/Cantika_Cute_Handwriting.otf");
 k.loadSound("sndHurt", "sounds/yoink.wav");
+k.loadSound("sndGameOver", "sounds/Hurt.wav");
 k.loadSound("sndJump", "sounds/toaster-pop.wav");
 k.loadSound("sndCollect", "sounds/3-up-fast-2.wav");
 k.loadSound("sndPowerUp", "sounds/power_up.wav");
 k.loadSound("sndHealthUp", "sounds/health_up.wav");
-k.loadSound("sndBgMusic", "sounds/bit-shift-kevin-macleod.mp3");
+k.loadSound("BgMusic", "sounds/bit-shift-kevin-macleod.mp3");
 
 
 k.onLoad(() => {
     k.scene("main-menu", mainMenu);
     k.scene("game", game);
-    k.scene("game-over", () => {});
+    k.scene("gameover", gameover);
     k.go("main-menu");
 });
 

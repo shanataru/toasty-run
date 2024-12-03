@@ -54,7 +54,7 @@ export function makeCollectible(collectibleName, gameSpeed, posX){
         if (collectibleName === "jam") { //moves in wavy pattern
             myTime += k.dt(); // Increment time by the delta time each frame
             let y = Math.sin(4*myTime)*350;
-            collectible.move( - gameSpeed, y);
+            collectible.move( - gameSpeed/2, y);
         }
         else if (collectibleName === "rainbow_salt"){
             time += k.dt();

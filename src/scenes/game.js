@@ -5,8 +5,15 @@ import {createWorld, moveWorld} from "../entities/world";
 import { makeCollectible } from "../entities/collectible";
 
 const MAX_HEALTH = 5;
+const BUFF_DURATION = 7.0;
+const IFRAME_DURATION = 2.0;
 
 export default function game(){
+    const bgm = k.play("BgMusic", {volume: 0.05, loop: true});
+
+    k.onButtonPress("end", () => k.go("gameover", bgm));
+
+
     k.setGravity(3100);
     let gameSpeed = 300;
     let maxGameSpeed = 1500;
@@ -42,6 +49,11 @@ export default function game(){
         if (playerHealth > MAX_HEALTH){
             playerHealth = MAX_HEALTH;
         }
+        if (playerHealth <= 0){
+            k.play("sndGameOver", {volume: 0.1});
+            k.setData("current-score", score);
+            k.go("gameover", bgm);
+        }
         healthTextContent = "";
         for(let i = 0; i < playerHealth; i++){
             healthTextContent += "♥"
@@ -68,7 +80,7 @@ export default function game(){
         if( playerCharacter.status === "normal" ){
             k.destroy(collidedObject);
             k.play("sndHurt", {volume: 0.5});
-            changeCharacterStatus("iframe", 2.0);
+            changeCharacterStatus("iframe", IFRAME_DURATION);
             scoreMultiplier = 1;
             gameSpeed = 300;
             updateHealthText(-1);
@@ -107,17 +119,21 @@ export default function game(){
     });
 
     let buffStatusEndTimer = null;
-
     playerCharacter.onCollide("rainbow_salt", (collidedObject) => {
+        let currentGameSpeed = gameSpeed;
         k.destroy(collidedObject);
         k.play("sndPowerUp", {volume: 0.3});
         updateScore(15, 1);
         updateCollectUIText("+buff!", k.rgb(255, 180, 0));
-        changeCharacterStatus("buff", 5.0); //update status everytime a rainbow-salt is picked
+        changeCharacterStatus("buff", BUFF_DURATION); //update status everytime a rainbow-salt is picked
+        gameSpeed *= 3;
         if (buffStatusEndTimer !== null){
             buffStatusEndTimer.cancel();
         }
-        buffStatusEndTimer = k.wait(5, () => {scoreMultiplier = 1;})
+        buffStatusEndTimer = k.wait(BUFF_DURATION, () => {
+            scoreMultiplier = 1; 
+            gameSpeed = currentGameSpeed;
+        })
     });
 
     //increase game speed every second, check on players health

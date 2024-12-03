@@ -1,9 +1,10 @@
 import k from "../kaplayContext";
 import { makeCharacter } from "../entities/character";
-import {createWorld, moveWorld} from "../entities/world";
+import { createWorld, moveWorld} from "../entities/world";
 
 
 export default function mainMenu() {
+
     if (!k.getData("best-score")) {
         k.setData("best-score", 0);
     }

@@ -15,7 +15,7 @@ const k = kaplay(
             },
         },
         debugKey: "d",
-        debug: true, // is always on on default
+        debug: false, // is always on on default
     }
 );
 
