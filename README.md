@@ -1,6 +1,7 @@
 # Toasty Run
 - 2D infinity run game made in javascript using kaplay.js game library
 - built following a sonic game tutorial made by [JSLegendDev](https://www.youtube.com/watch?v=wfRvhPm5qFc)
+- you can play it [here](https://soft-pages.github.io/toasty-run/)
 
 ### How to Play
 - spacebar / mouse left click / tap screen to jump
