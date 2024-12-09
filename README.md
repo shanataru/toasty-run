@@ -12,9 +12,9 @@
 
 ### Game Screenshots
 
-<img src="https://github.com/shanataru/toasty-run/blob/main/public/graphics/showcase/tr-7.png" width="500" />
-<img src="https://github.com/shanataru/toasty-run/blob/main/public/graphics/showcase/tr-5.png" width="500" />
-<img src="https://github.com/shanataru/toasty-run/blob/main/public/graphics/showcase/tr-2.png" width="500" />
+<img src="https://github.com/shanataru/toasty-run/blob/main/misc/showcase/tr-7.png" width="500" />
+<img src="https://github.com/shanataru/toasty-run/blob/main/misc/showcase/tr-5.png" width="500" />
+<img src="https://github.com/shanataru/toasty-run/blob/main/misc/showcase/tr-2.png" width="500" />
 
 ### Asset Credits
 Butter, mold enemy, and rainbow salt is made by me using Aseprite.
