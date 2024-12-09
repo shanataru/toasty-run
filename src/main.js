@@ -4,7 +4,7 @@ import game from "./scenes/game";
 import gameover from "./scenes/gameover";
 
 
-k.loadSprite("background", "graphics/kitchen-bg2-blur.png");
+k.loadSprite("background", "graphics/kitchen-bg2-blur-4k.png");
 k.loadSprite("platforms", "graphics/table_platforms_dark_or.jpg");
 k.loadSprite("character", "graphics/bread_spritesheet.png", {
     sliceX: 4,

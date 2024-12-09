@@ -3,10 +3,10 @@ import k from "../kaplayContext";
 let bgPieces
 let platforms
 
-const bgPieceWidth = 8000;
-const bgPieceScale = 0.75;
+const bgPieceWidth = 4096;
+const bgPieceScale = 1.5;
 const bgOpacity = 0.8;
-const bgYPos = -50;
+const bgYPos = 100;
 
 const platformWidth = 1280; 
 const platformScale = 1.1;
@@ -37,16 +37,16 @@ export function createWorld(){
 
 export function moveWorld(bgSpeed, platformSpeed, characterPosY){
     if (bgPieces[1].pos.x < 0){
-        bgPieces[0].moveTo(bgPieces[1].pos.x + bgPieces[0].width * bgPieceScale, bgYPos);
+        bgPieces[0].moveTo(bgPieces[1].pos.x + bgPieceWidth * bgPieceScale, bgYPos);
         bgPieces.push(bgPieces.shift());
     }
 
     bgPieces[0].move(bgSpeed, 0);
-    bgPieces[1].moveTo(bgPieces[0].pos.x + bgPieces[0].width * bgPieceScale, bgYPos);
+    bgPieces[1].moveTo(bgPieces[0].pos.x + bgPieceWidth * bgPieceScale, bgYPos);
     
     //shift bg a bit when character jump
-    bgPieces[0].moveTo(bgPieces[0].pos.x, - characterPosY / 10 - 50);
-    bgPieces[1].moveTo(bgPieces[1].pos.x, - characterPosY / 10 - 50);
+    bgPieces[0].moveTo(bgPieces[0].pos.x, - characterPosY / 10 - 25);
+    bgPieces[1].moveTo(bgPieces[1].pos.x, - characterPosY / 10 - 25);
 
     if(platforms[1].pos.x < 0){
         platforms[0].moveTo(platforms[1].pos.x + platforms[0].width * platformScale, platformYPos);

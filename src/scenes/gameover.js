@@ -5,7 +5,7 @@ export default function gameover(bgm){
     bgm.paused = true;
     createWorld();
     k.onUpdate( () => {
-        moveWorld(-100, -500, 0);
+        moveWorld(-50, -200, 554);
     });
 
     let bestScore = k.getData("best-score");

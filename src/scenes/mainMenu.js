@@ -8,7 +8,14 @@ export default function mainMenu() {
     if (!k.getData("best-score")) {
         k.setData("best-score", 0);
     }
-    k.onButtonPress("jump", () => k.go("game"));
+    k.onButtonPress("jump", () => {
+        k.go("game");
+        /*const canvas = document.querySelector("canvas");
+        const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+        if (gl) {
+            const maxTextureSize = gl.getParameter(gl.MAX_TEXTURE_SIZE);
+        }*/
+     });
 
     createWorld();
 
@@ -27,6 +34,6 @@ export default function mainMenu() {
     makeCharacter(k.vec2(200, 554));
 
     k.onUpdate( () => {
-        moveWorld(-100, -500, 0);
+        moveWorld(-100, -500, 554);
     });
 }
